@@ -10,7 +10,7 @@
 ## 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [Schema](#-ER-diagram-")
+  - [Schema](#ER-diagram")
   - [🛠 Built With ](#-built-with-)
   - [Tech Stack ](#tech-stack-)
   - [Key Features ](#key-features-)
