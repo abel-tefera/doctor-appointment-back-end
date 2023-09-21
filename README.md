@@ -10,10 +10,10 @@
 ## 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
-  - [Schema](#-schema)
+  - [Schema](#-ER-diagram-")
   - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
+  - [Tech Stack ](#tech-stack-)
+  - [Key Features ](#key-features-)
   - [🚀 Live Demo](#live-demo)
   - [Video Presentation](#video-presentation)
 - [💻 Getting Started ](#-getting-started-)
@@ -33,12 +33,14 @@
 
 > The Backend for the Doctor's Appointment app. Built using Ruby on Rails.
 
-<!-- Database SCHEMA -->
+<!-- ER diagram"-->
 
-# Database Schema <a name="schema"></a>
+# Database Schema <a name="ER-diagram"></a>
 
-The database designed is based on this schema
-<img src="image/ER_diagram.png" alt="schema" width="140"  height="auto" />
+<div align="center">
+ <img src="image/ER_diagram.png" alt="schema" width="600"  height="auto" />
+  <br/>
+</div>
 
 #### Link to [Frontend](https://github.com/abel-tefera/doctor-appointment-front-end)
 
