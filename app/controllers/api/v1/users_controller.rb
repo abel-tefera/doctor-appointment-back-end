@@ -2,9 +2,12 @@ class Api::V1::UsersController < ApplicationController
   def new_session
     return unless request.content_type == 'application/json'
 
-    user = User.where(user_name: user_params[:user_name])
+    user_name = user_params[:user_name].downcase
+
+    user = User.where(user_name:)
+
     if user.empty?
-      new_user = User.create(user_params)
+      new_user = User.create!(user_name:)
       msg = {
         id: new_user.id,
         user_name: new_user.user_name,
@@ -12,8 +15,8 @@ class Api::V1::UsersController < ApplicationController
       }
     else
       msg = {
-        id: user[0].user_name,
-        user_name: user[0].user_name,
+        id: user.first.id,
+        user_name: user.first.user_name,
         message: 'success'
       }
     end
