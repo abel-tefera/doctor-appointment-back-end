@@ -7,6 +7,21 @@ class Api::V1::AppointmentsController < ApplicationController
             render json: {error: 'Error creating appointment'}
         end
     end
+
+    def find_all
+        @user_appointments = Appointment.where(user_id: params[:user_id])
+        @appointments_info = []
+        @user_appointments.each do |appointment|
+          @appointments_info.push({
+                                    id: appointment.id,
+                                    user: appointment.user.user_name,
+                                    doctor: appointment.doctor.name,
+                                    hospital: appointment.doctor.hospital,
+                                    date: appointment.appointment_date
+                                  })
+        end
+        render json: @appointments_info
+    end
     
     private
     
