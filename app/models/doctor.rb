@@ -7,5 +7,5 @@ class Doctor < ApplicationRecord
   validates :hospital, presence: true
   validates :specialization, presence: true
   validates :rate, presence: true, numericality: { greater_than: 0 }
-  validates :images, presence: true
+  validates :image, presence: true
 end

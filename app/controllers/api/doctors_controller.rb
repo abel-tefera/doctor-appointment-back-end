@@ -1,7 +1,9 @@
 class Api::DoctorsController < ApplicationController
   
   def index
-    doctors = Doctor.all
+    doctors = Doctor.pluck(:name, :hospital, :image).map do |name, hospital, image|
+      { name: name, hospital: hospital, image: Base64.encode64(image) }
+    end
     render json: doctors
   end
 
