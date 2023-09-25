@@ -15,6 +15,6 @@ end
 
 for i in 0..users.length - 1 do
   for j in 1..4 do
-    Doctor.create!(user: users[i], name: "Dr Number #{j}", bio: Faker::Lorem.sentences(number: 5 + Random.rand(10)).join(' '), hospital: Faker::Lorem.sentences(number: 1), specialization: Faker::Lorem.sentences(number: 1), rate: Random.rand(100..1000), image: URI.open(images[j-1]).read)
+    Doctor.create!(user: users[i], name: "Dr Number #{j}", bio: Faker::Lorem.sentences(number: 5 + Random.rand(10)).join(' '), hospital: Faker::Lorem.sentences(number: 1).join(''), specialization: Faker::Lorem.sentences(number: 1).join(''), rate: Random.rand(100..1000), image: URI.open(images[j-1]).read)
   end
 end
