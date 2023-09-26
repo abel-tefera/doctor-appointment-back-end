@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
-  namespace :api do
+  namespace :api do   
     namespace :v1 do
+      resources :doctors, only: [:index]
+      # resources :users
+      get 'doctors/main', to: 'doctors#three_first_doctors'
       resources :appointments, only: [:create]
       post 'appointments/find_all', to: 'appointments#find_all'
       post 'users/new_session', to: 'users#new_session'
