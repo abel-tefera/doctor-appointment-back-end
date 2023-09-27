@@ -18,6 +18,16 @@ class Api::V1::DoctorsController < ApplicationController
     render json: doctors
   end
 
+  def create
+    user_id = params[:doctor][:user_id]
+    @user = User.find_by(id: user_id)
+
+    if @user.nil?
+      render json: { error: 'User not found' }, status: :not_found
+      return
+    end    
+  end
+
   private
 
   def doctor_params
