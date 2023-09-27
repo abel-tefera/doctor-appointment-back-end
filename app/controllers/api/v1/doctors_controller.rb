@@ -26,6 +26,8 @@ class Api::V1::DoctorsController < ApplicationController
       render json: { error: 'User not found' }, status: :not_found
       return
     end    
+
+    @doctor = @user.doctors.build(doctor_create_params)    
   end
 
   private
