@@ -18,9 +18,35 @@ class Api::V1::DoctorsController < ApplicationController
     render json: doctors
   end
 
+  def create
+    user_id = params[:doctor][:user_id]
+    @user = User.find_by(id: user_id)
+
+    if @user.nil?
+      render json: { error: 'User not found' }, status: :not_found
+      return
+    end
+
+    doctor_create_params_without_user_id = doctor_create_params.except(:user_id)
+    @doctor = @user.doctors.build(doctor_create_params_without_user_id)
+
+    @doctor.image = params[:doctor][:image].read if params[:doctor][:image].present?
+
+    if @doctor.save
+      @doctor.image = Base64.encode64(@doctor.image)
+      render json: @doctor, status: :created
+    else
+      render json: @doctor.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def doctor_params
     params.require(:doctor).permit(:id, :name, :bio, :hospital, :specialization, :rate, :images)
+  end
+
+  def doctor_create_params
+    params.require(:doctor).permit(:name, :bio, :specialization, :rate, :hospital, :image, :user_id)
   end
 end
