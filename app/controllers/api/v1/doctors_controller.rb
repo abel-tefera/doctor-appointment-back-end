@@ -28,6 +28,12 @@ class Api::V1::DoctorsController < ApplicationController
     end    
 
     @doctor = @user.doctors.build(doctor_create_params)    
+
+    if @doctor.save
+      render json: @doctor, status: :created      
+    else
+      render json: @doctor.errors, status: :unprocessable_entity
+    end
   end
 
   private
