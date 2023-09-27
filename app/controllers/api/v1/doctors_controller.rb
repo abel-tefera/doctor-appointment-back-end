@@ -19,7 +19,9 @@ class Api::V1::DoctorsController < ApplicationController
   end
 
   def destroy
- 
+    @doctor = Doctor.find(params[:id])
+    @doctor.destroy
+    head :no_content
   end
 
   def create
