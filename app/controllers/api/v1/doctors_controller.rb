@@ -29,7 +29,9 @@ class Api::V1::DoctorsController < ApplicationController
 
     @doctor = @user.doctors.build(doctor_create_params)    
 
-    @doctor.image = params[:doctor][:image].read  
+    if params[:doctor][:image].present?
+      @doctor.image = params[:doctor][:image].read       
+    end 
 
     if @doctor.save
       @doctor.image = Base64.encode64(@doctor.image)
