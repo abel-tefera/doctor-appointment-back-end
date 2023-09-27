@@ -18,6 +18,10 @@ class Api::V1::DoctorsController < ApplicationController
     render json: doctors
   end
 
+  def destroy
+ 
+  end
+
   def create
     user_id = params[:doctor][:user_id]
     @user = User.find_by(id: user_id)
