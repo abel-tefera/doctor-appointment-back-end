@@ -30,6 +30,7 @@ class Api::V1::DoctorsController < ApplicationController
     @doctor = @user.doctors.build(doctor_create_params)    
 
     if @doctor.save
+      @doctor.image = Base64.encode64(@doctor.image)
       render json: @doctor, status: :created      
     else
       render json: @doctor.errors, status: :unprocessable_entity
