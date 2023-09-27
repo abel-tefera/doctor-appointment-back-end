@@ -27,7 +27,8 @@ class Api::V1::DoctorsController < ApplicationController
       return
     end    
 
-    @doctor = @user.doctors.build(doctor_create_params)    
+    doctor_create_params_without_user_id = doctor_create_params.except(:user_id)
+    @doctor = @user.doctors.build(doctor_create_params_without_user_id)
 
     if params[:doctor][:image].present?
       @doctor.image = params[:doctor][:image].read       
