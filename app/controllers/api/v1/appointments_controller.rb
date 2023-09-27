@@ -2,7 +2,14 @@ class Api::V1::AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      render json: @appointment
+      render json: {
+        id: @appointment.id,
+        user: @appointment.user.user_name,
+        doctor: @appointment.doctor.name,
+        hospital: @appointment.doctor.hospital,
+        date: @appointment.appointment_date,
+        rate: @appointment.doctor.rate
+      }
     else
       render json: { error: 'Error creating appointment' }
     end
@@ -17,7 +24,8 @@ class Api::V1::AppointmentsController < ApplicationController
                                 user: appointment.user.user_name,
                                 doctor: appointment.doctor.name,
                                 hospital: appointment.doctor.hospital,
-                                date: appointment.appointment_date
+                                date: appointment.appointment_date,
+                                rate: appointment.doctor.rate
                               })
     end
     render json: @appointments_info
