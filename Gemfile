@@ -53,6 +53,6 @@ gem 'rack-cors'
 
 gem 'open-uri'
 
-gem 'rspec-rails' 
+gem 'rspec-rails'
 
 gem 'rswag'
