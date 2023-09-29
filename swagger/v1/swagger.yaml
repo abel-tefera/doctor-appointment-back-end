@@ -4,6 +4,49 @@ info:
   title: API V1
   version: v1
 paths:
+  "/api/v1/appointments":
+    post:
+      summary: create appointment
+      parameters: []
+      responses:
+        '201':
+          description: appointment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_date:
+                  type: date
+                  default: '2023-09-29'
+                doctor_id:
+                  type: number
+                user_id:
+                  type: number
+              required:
+              - appointment_date
+              - doctor_id
+              - user_id
+  "/api/v1/appointments/find_all":
+    post:
+      summary: find_all appointment
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: number
+              required:
+              - user_id
   "/api/v1/doctors":
     get:
       summary: list doctors
