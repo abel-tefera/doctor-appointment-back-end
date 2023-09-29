@@ -1,19 +1,25 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/users', type: :request do
-
   path '/api/v1/users/new_session' do
-
     post('new_session user') do
-      response(200, 'successful') do
+      consumes 'application/json'
+      parameter name: :user, in: :body, schema: {
+        type: :object,
+        properties: {
+          user_name: { type: :string }
 
-        after do |example|
-          example.metadata[:response][:content] = {
-            'application/json' => {
-              example: JSON.parse(response.body, symbolize_names: true)
-            }
-          }
-        end
+        },
+        required: ['user_name']
+      }
+
+      response '201', 'user created' do
+        let(:user) { { user_name: 'foo' } }
+        run_test!
+      end
+
+      response '422', 'invalid request' do
+        let(:user) { { name: 'foo' } }
         run_test!
       end
     end
