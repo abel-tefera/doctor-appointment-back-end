@@ -52,3 +52,5 @@ gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'rack-cors'
 
 gem 'open-uri'
+
+gem 'date_validator', '~> 0.12.0'
