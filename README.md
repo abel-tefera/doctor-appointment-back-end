@@ -69,7 +69,7 @@
 
 > Here's the link to my deployed project:
 
-- [Coming Soon](#)
+- [http://145.14.158.81/](http://145.14.158.81/)
 
 ## Video Presentation <a name="video-presentation"></a>
 
