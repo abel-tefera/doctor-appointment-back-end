@@ -54,3 +54,7 @@ gem 'rack-cors'
 gem 'open-uri'
 
 gem 'date_validator', '~> 0.12.0'
+
+gem 'rspec-rails'
+
+gem 'rswag'
