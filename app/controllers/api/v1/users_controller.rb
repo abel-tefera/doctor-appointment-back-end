@@ -21,6 +21,10 @@ class Api::V1::UsersController < ApplicationController
     render json: msg, status: :ok
   end
 
+  def index
+    render json: "Welcome to Doctor's Appointment Backend. Built with Ruby on Rails", status: :ok
+  end
+
   def user_params
     params.require(:user).permit(:user_name)
   end

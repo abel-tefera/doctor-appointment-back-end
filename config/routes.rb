@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
+  
   namespace :api do   
     namespace :v1 do
       resources :doctors, only: [:index, :create , :destroy]
@@ -11,4 +12,6 @@ Rails.application.routes.draw do
       post 'users/new_session', to: 'users#new_session'
     end
   end
+
+  root to: 'api/v1/users#index', defaults: { format: :json }
 end
