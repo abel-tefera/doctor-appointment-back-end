@@ -1,0 +1,163 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/appointments":
+    post:
+      summary: create appointment
+      parameters: []
+      responses:
+        '201':
+          description: appointment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                appointment_date:
+                  type: date
+                  default: '2023-09-29'
+                doctor_id:
+                  type: number
+                user_id:
+                  type: number
+              required:
+              - appointment_date
+              - doctor_id
+              - user_id
+  "/api/v1/appointments/find_all":
+    post:
+      summary: find_all appointment
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: number
+              required:
+              - user_id
+  "/api/v1/doctors":
+    get:
+      summary: list doctors
+      responses:
+        '200':
+          description: successful
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
+                    bio:
+                      type: string
+                    hospital:
+                      type: string
+                    specialization:
+                      type: string
+                    rate:
+                      type: number
+                    image:
+                      type: string
+                  required:
+                  - id
+                  - name
+                  - bio
+                  - hospital
+                  - specialization
+                  - rate
+                  - image
+    post:
+      summary: Creates a doctors
+      parameters: []
+      responses:
+        '201':
+          description: doctor created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                bio:
+                  type: text
+                hospital:
+                  type: string
+                specialization:
+                  type: string
+                rate:
+                  type: number
+                image:
+                  type: text
+                user_id:
+                  type: number
+              required:
+              - name
+              - bio
+              - hospital
+              - specialization
+              - rate
+              - image
+              - " user_id"
+  "/api/v1/doctors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    delete:
+      summary: delete doctor
+      responses:
+        '204':
+          description: successful
+  "/api/v1/doctors/main":
+    get:
+      summary: three_first_doctors doctor
+      responses:
+        '200':
+          description: successful
+  "/api/v1/users/new_session":
+    post:
+      summary: new_session user
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_name:
+                  type: string
+              required:
+              - user_name
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3001
