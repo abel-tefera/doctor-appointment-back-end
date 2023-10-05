@@ -15,6 +15,7 @@
   - [Tech Stack ](#tech-stack-)
   - [Key Features ](#key-features-)
   - [🚀 Live Demo](#live-demo)
+  - [Kanban Board](#kanban)
   - [Video Presentation](#video-presentation)
 - [💻 Getting Started ](#-getting-started-)
   - [Prerequisites](#prerequisites)
@@ -70,6 +71,16 @@
 > Here's the link to my deployed project:
 
 - [https://doctor-appointment-back-end.onrender.com/](https://doctor-appointment-back-end.onrender.com/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🎬 Kanban Board <a id="kanban"></a>
+
+Link to the [Kanban Board](https://github.com/abel-tefera/doctor-appointment-back-end/projects/1)
+
+All 4 Authors have been contributing to this project from start to finish
+
+You can find the initial snapshot and setup of the Kanban board [here](https://github.com/abel-tefera/doctor-appointment-back-end/issues/12).
 
 ## Video Presentation <a name="video-presentation"></a>
 
