@@ -22,7 +22,8 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def index
-    render json: "Welcome to Doctor's Appointment Backend. Built with Ruby on Rails", status: :ok
+    render json: "Welcome to Doctor's Appointment Backend. Built with Ruby on Rails. You can find the API documentation on /api/v1/api-docs",
+           status: :ok
   end
 
   def user_params
