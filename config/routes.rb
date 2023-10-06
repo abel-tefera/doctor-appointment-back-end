@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   
   namespace :api do   
     namespace :v1 do
+      root to: 'users#index', defaults: { format: :json }
       resources :doctors, only: [:index, :create , :destroy]
       # resources :users
       get 'doctors/main', to: 'doctors#three_first_doctors'
@@ -13,5 +14,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'api/v1/users#index', defaults: { format: :json }
+ # root to: 'api/v1/users#index', defaults: { format: :json }
 end

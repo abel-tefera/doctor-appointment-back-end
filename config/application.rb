@@ -10,8 +10,12 @@ module DoctorAppointmentBackEnd
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    config.hosts << "doctors.abeltb.xyz"
 
     # Configuration for the application, engines, and railties goes here.
+    # sts << "doctors.abeltb.xyz"
+    #     config.hosts << "doctors.abeltb.xyz"
+    #
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
